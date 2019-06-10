@@ -1,9 +1,15 @@
-# We need a schedule based on cron
+node {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                sh 'echo "Hello World"'
+                sh '''
+                    echo "Multiline shell steps works too"
+                    ls -lah
+                '''
+            }
+        }
+    }
+}
 
-# min hour day month day_of_week
-* * * * *
-# will run every minute on the minute
-
-# We also need a repository with a Jenkinsfile
-# in it:
-https://github.com/soumyadipgit/jenkins-git.git
